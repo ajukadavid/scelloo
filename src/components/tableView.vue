@@ -4,157 +4,70 @@
             <input type="text" v-model="searchInput" placeholder="Search" />
             <button @click="payDues">Pay Dues</button>
         </div>
-        <ul class="user-list">
-            <li v-for="user in filteredUsers" :key="user.id" class="user-row">
-                <input type="checkbox" v-model="selectedUsers" :value="user.id" />
-                <span class="user-info">{{ user.firstName }} {{ user.lastName }} ({{ user.email }})</span>
-                <button @click="toggleDetails(user.id)">
-                    {{ expandedRows.includes(user.id) ? "Hide Details" : "Show Details" }}
-                </button>
-                <div v-if="expandedRows.includes(user.id)" class="user-details">
-                    <p>Payment Status: {{ user.paymentStatus }}</p>
-                    <p>Amount: {{ user.amount }}</p>
-                </div>
-            </li>
-        </ul>
+        <table>
+            <thead>
+                <tr class="main-header">
+                    <th></th>
+                    <th>Name</th>
+                    <th>User status</th>
+                    <th>Payment status</th>
+                    <th>Amount</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <template :key="user.id" v-for="user in filteredUsers">
+                    <tr class="user-row">
+                        <td>
+                            <input type="checkbox" v-model="selectedUsers" :value="user.id" />
+                        </td>
+                        <td>
+                            <div class="flex flex-col">
+                                <div>
+                                    <span class="mr-1">{{ user.firstName }}</span>
+                                    <span>{{ user.lastName }}</span>
+                                </div>
+                                <div>
+                                    <span>{{ user.email }}</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td>
+                            <button @click="toggleDetails(user.id)">
+                                {{ expandedRows.includes(user.id) ? "Hide Details" : "Show Details" }}
+                            </button>
+                        </td>
+                    </tr>
+                    <tr v-if="expandedRows.includes(user.id)" :key="'details-' + user.id" class="user-details">
+                        <td colspan="5">
+                            <div class="justify-center flex bg-yellow-300 items-center">
+                                <div class="text-4xl">
+                                    Hello 👋🏼
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
     </div>
 </template>
   
+  
+  
+
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
+import { useStore } from '../store';
 
 const searchInput = ref('');
 const selectedUsers = ref([]);
 const expandedRows = ref<any>([]);
-
-// Your user data array
-const users = [
-    {
-        id: 1,
-        firstName: "John",
-        lastName: "Doe",
-        email: "johndoe@example.com",
-        paymentStatus: "Paid",
-        amount: 100,
-    },
-    {
-        id: 2,
-        firstName: "Jane",
-        lastName: "Smith",
-        email: "janesmith@example.com",
-        paymentStatus: "Unpaid",
-        amount: 150,
-    },
-    {
-        id: 3,
-        firstName: "Alice",
-        lastName: "Johnson",
-        email: "alicejohnson@example.com",
-        paymentStatus: "Overdue",
-        amount: 200,
-    },
-    {
-        id: 4,
-        firstName: "Michael",
-        lastName: "Brown",
-        email: "michaelbrown@example.com",
-        paymentStatus: "Paid",
-        amount: 120,
-    },
-    {
-        id: 5,
-        firstName: "Emily",
-        lastName: "Williams",
-        email: "emilywilliams@example.com",
-        paymentStatus: "Paid",
-        amount: 90,
-    },
-    {
-        id: 6,
-        firstName: "David",
-        lastName: "Jones",
-        email: "davidjones@example.com",
-        paymentStatus: "Unpaid",
-        amount: 180,
-    },
-    {
-        id: 7,
-        firstName: "Olivia",
-        lastName: "Miller",
-        email: "oliviamiller@example.com",
-        paymentStatus: "Overdue",
-        amount: 220,
-    },
-    {
-        id: 8,
-        firstName: "William",
-        lastName: "Wilson",
-        email: "williamwilson@example.com",
-        paymentStatus: "Paid",
-        amount: 130,
-    },
-    {
-        id: 9,
-        firstName: "Sophia",
-        lastName: "Davis",
-        email: "sophiadavis@example.com",
-        paymentStatus: "Paid",
-        amount: 110,
-    },
-    {
-        id: 10,
-        firstName: "James",
-        lastName: "Taylor",
-        email: "jamestaylor@example.com",
-        paymentStatus: "Unpaid",
-        amount: 170,
-    },
-    {
-        id: 11,
-        firstName: "Ava",
-        lastName: "Anderson",
-        email: "avaanderson@example.com",
-        paymentStatus: "Overdue",
-        amount: 190,
-    },
-    {
-        id: 12,
-        firstName: "Joseph",
-        lastName: "Thomas",
-        email: "josephthomas@example.com",
-        paymentStatus: "Paid",
-        amount: 105,
-    },
-    {
-        id: 13,
-        firstName: "Isabella",
-        lastName: "Roberts",
-        email: "isabellaroberts@example.com",
-        paymentStatus: "Paid",
-        amount: 95,
-    },
-    {
-        id: 14,
-        firstName: "Mason",
-        lastName: "Johnson",
-        email: "masonjohnson@example.com",
-        paymentStatus: "Unpaid",
-        amount: 160,
-    },
-    {
-        id: 15,
-        firstName: "Ella",
-        lastName: "Martinez",
-        email: "ellamartinez@example.com",
-        paymentStatus: "Overdue",
-        amount: 205,
-    },
-
-
-];
+const store = useStore();
 
 const filteredUsers = computed(() => {
-    return users.filter((user) =>
+    return store.state.users.filter((user: any) =>
         user.firstName.toLowerCase().includes(searchInput.value.toLowerCase())
     );
 });
@@ -173,11 +86,14 @@ const payDues = () => {
     console.log("Paying dues for users:", selectedUsers.value);
 };
 </script>
-  
 
 <style>
 .table-container {
     margin: 20px;
+}
+
+.search-bar {
+    margin-bottom: 10px;
 }
 
 .search-bar input[type="text"] {
@@ -194,28 +110,37 @@ const payDues = () => {
     cursor: pointer;
 }
 
-.user-list {
-    list-style: none;
-    padding: 0;
+table {
+    width: 100%;
+}
+
+thead {
+    background-color: #F4F2FF;
+    height: 60px;
+}
+
+th {
+    text-align: start;
+    color: #6E6893;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.main-header {
+    border: 1px solid #E4E1F1
+}
+
+td {
+    padding: 5px;
 }
 
 .user-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+    cursor: pointer;
+
 }
 
 .user-details {
-    margin-left: 20px;
-    padding: 10px;
     background-color: #f2f2f2;
 }
-
-.user-details p {
-    margin: 5px 0;
-}
-
-.user-row button {
-    margin-left: 10px;
-}
 </style>
+```
