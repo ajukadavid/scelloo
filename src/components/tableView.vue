@@ -1,12 +1,13 @@
 <template>
     <div class="table-container">
         <div class="search-bar">
+
             <input type="text" v-model="searchInput" placeholder="Search" />
             <button @click="payDues">Pay Dues</button>
         </div>
         <table>
             <thead>
-                <tr class="main-header">
+                <tr class="main-header text-sm">
                     <th></th>
                     <th>Name</th>
                     <th>User status</th>
@@ -17,9 +18,14 @@
             </thead>
             <tbody>
                 <template :key="user.id" v-for="user in filteredUsers">
-                    <tr class="user-row">
+                    <tr @click="toggleDetails(user.id)" class="user-row">
                         <td>
-                            <input type="checkbox" v-model="selectedUsers" :value="user.id" />
+                            <div class="px-5 flex w-full justify-between">
+                                <input type="checkbox" class="check" v-model="selectedUsers" :value="user.id" />
+                                <span class="material-symbols-outlined icon">
+                                    expand_circle_down
+                                </span>
+                            </div>
                         </td>
                         <td>
                             <div class="flex flex-col">
@@ -27,17 +33,19 @@
                                     <span class="mr-1">{{ user.firstName }}</span>
                                     <span>{{ user.lastName }}</span>
                                 </div>
-                                <div>
+                                <div class="email">
                                     <span>{{ user.email }}</span>
                                 </div>
                             </div>
                         </td>
-                        <td></td>
                         <td>
-                            <button @click="toggleDetails(user.id)">
-                                {{ expandedRows.includes(user.id) ? "Hide Details" : "Show Details" }}
-                            </button>
+                            <div class="flex flex-col">
+                                <div>
+                                    <statusBadge :status="user.status" background-color="red" text-color="blue" />
+                                </div>
+                            </div>
                         </td>
+
                     </tr>
                     <tr v-if="expandedRows.includes(user.id)" :key="'details-' + user.id" class="user-details">
                         <td colspan="5">
@@ -60,6 +68,7 @@
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
 import { useStore } from '../store';
+import statusBadge from './statusBadge.vue';
 
 const searchInput = ref('');
 const selectedUsers = ref([]);
@@ -110,6 +119,18 @@ const payDues = () => {
     cursor: pointer;
 }
 
+.check {
+    border-color: #8B82BA;
+    width: 20px;
+    height: 20px;
+    /* -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; */
+    border-style: solid;
+    border-width: 1.9px;
+    padding: 2px;
+}
+
 table {
     width: 100%;
 }
@@ -142,5 +163,12 @@ td {
 .user-details {
     background-color: #f2f2f2;
 }
+
+.icon {
+    color: #8B82BA
+}
+
+.email {
+    color: #6E6893
+}
 </style>
-```
