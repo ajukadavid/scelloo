@@ -5,7 +5,7 @@
             <input type="text" v-model="searchInput" placeholder="Search" />
             <button @click="payDues">Pay Dues</button>
         </div>
-        <table>
+        <table border="1">
             <thead>
                 <tr class="main-header text-sm">
                     <th></th>
@@ -41,11 +41,39 @@
                         <td>
                             <div class="flex flex-col">
                                 <div>
-                                    <statusBadge :status="user.status" background-color="red" text-color="blue" />
+                                    <statusBadge :status="user.status" :background-color="user.statusBackgroundColor"
+                                        :text-color="user.statusColor" />
+                                </div>
+                                <div class="text-sm mt-2">
+                                    <span class="email">Last login: {{ user.lastLogin }}</span>
                                 </div>
                             </div>
                         </td>
-
+                        <td>
+                            <div class="flex flex-col">
+                                <div>
+                                    <statusBadge :status="user.paymentStatus" :background-color="user.paymentBg"
+                                        :text-color="user.paymentColor" />
+                                </div>
+                                <div class="text-sm mt-2">
+                                    <span>Paid on {{ user.lastLogin }}</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flex w-full items-center  justify-between">
+                                <div class="flex flex-col">
+                                    <span class="font-bold">${{ user.amount }}</span>
+                                    <span class="font-light email text-base">{{ user.currency }}</span>
+                                </div>
+                                <span class="email text-sm">View more</span>
+                                <div>
+                                    <span class="email material-symbols-outlined">
+                                        more_vert
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                     <tr v-if="expandedRows.includes(user.id)" :key="'details-' + user.id" class="user-details">
                         <td colspan="5">
@@ -123,9 +151,6 @@ const payDues = () => {
     border-color: #8B82BA;
     width: 20px;
     height: 20px;
-    /* -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none; */
     border-style: solid;
     border-width: 1.9px;
     padding: 2px;
@@ -144,7 +169,7 @@ th {
     text-align: start;
     color: #6E6893;
     text-transform: uppercase;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .main-header {
@@ -162,6 +187,10 @@ td {
 
 .user-details {
     background-color: #f2f2f2;
+}
+
+tr {
+    border-bottom: 1px solid #D9D5EC;
 }
 
 .icon {

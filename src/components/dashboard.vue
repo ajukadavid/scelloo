@@ -3,7 +3,11 @@ import tableView from './tableView.vue';
 </script>
 
 <template>
-  <tableView />
+  <div class="w-full px-20">
+    <div class="w-full">
+      <tableView />
+    </div>
+  </div>
 </template>
 
 <style scoped>

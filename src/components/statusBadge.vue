@@ -16,7 +16,7 @@ const bg = computed(() => {
 </script>
 
 <template>
-    <div class="badge flex items-center justify-center px-2">
+    <div class="badge flex items-center justify-center">
         <div>
             <div class="dot"></div>
         </div>
@@ -30,7 +30,7 @@ const bg = computed(() => {
     background-color: v-bind(bg);
     border-radius: 30px;
     width: 70px;
-    height: 25px;
+    height: 20px;
     color: v-bind(textColor);
 }
 
@@ -38,7 +38,7 @@ const bg = computed(() => {
     width: 7px;
     height: 7px;
     border-radius: 60px;
-    margin-right: 10px;
+    margin-right: 6px;
     background-color: v-bind(textColor);
 }
 </style>

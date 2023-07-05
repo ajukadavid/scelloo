@@ -14,17 +14,29 @@ export const store = createStore<State>({
         firstName: "John",
         lastName: "Doe",
         email: "johndoe@example.com",
-       paymentStatus: "Paid",
-paymentColor: '#007F00',
-paymentBg: '#CDFFCD',
-
+        paymentStatus: "Paid",
+        paymentColor: '#007F00',
+        paymentBg: '#CDFFCD',
         amount: 100,
-        currency: "USD",
+        currency: "USD",  data: [
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+        ],
         paymentDate: "01/Jul/2023",
         lastLogin: "02/Jul/2023",
-status: "Active",
-    statusColor: "#4A4AFF",
-    statusBackgroundColor: "#E6E6F2"      },
+        status: "Active",
+        statusColor: "#4A4AFF",
+        statusBackgroundColor: "#E6E6F2",
+      
+       },
       {
         id: 2,
         firstName: "Jane",
@@ -34,7 +46,18 @@ status: "Active",
 paymentColor: '#E5C999 ',
 paymentBg: '#FFECCC',
         amount: 150,
-        currency: "USD",
+        currency: "USD",  data: [
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+        ],
         paymentDate: "02/Jul/2023",
         lastLogin: "03/Jul/2023",
 status: "Active",
@@ -49,7 +72,18 @@ status: "Active",
 paymentColor: '#D81C1C',
 paymentBg: '#FFE0E0',
         amount: 200,
-        currency: "USD",
+        currency: "USD",  data: [
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+        ],
         paymentDate: "03/Jul/2023",
         lastLogin: "04/Jul/2023",
          status: "Inactive",
@@ -66,7 +100,18 @@ paymentColor: '#007F00',
 paymentBg: '#CDFFCD',
 
         amount: 120,
-        currency: "USD",
+        currency: "USD",  data: [
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+        ],
         paymentDate: "04/Jul/2023",
         lastLogin: "05/Jul/2023",
 status: "Active",
@@ -82,7 +127,18 @@ paymentColor: '#007F00',
 paymentBg: '#CDFFCD',
 
         amount: 90,
-        currency: "USD",
+        currency: "USD",  data: [
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+        ],
         paymentDate: "05/Jul/2023",
         lastLogin: "06/Jul/2023",
 status: "Active",
@@ -97,7 +153,18 @@ status: "Active",
 paymentColor: '#E5C999 ',
 paymentBg: '#FFECCC',
         amount: 180,
-        currency: "USD",
+        currency: "USD",  data: [
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+        ],
         paymentDate: "06/Jul/2023",
         lastLogin: "07/Jul/2023",
 status: "Active",
@@ -112,7 +179,18 @@ status: "Active",
 paymentColor: '#D81C1C',
 paymentBg: '#FFE0E0',
         amount: 220,
-        currency: "USD",
+        currency: "USD",  data: [
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+        ],
         paymentDate: "07/Jul/2023",
         lastLogin: "08/Jul/2023",
          status: "Inactive",
@@ -129,7 +207,18 @@ paymentColor: '#007F00',
 paymentBg: '#CDFFCD',
 
         amount: 130,
-        currency: "USD",
+        currency: "USD",  data: [
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+        ],
         paymentDate: "08/Jul/2023",
         lastLogin: "09/Jul/2023",
 status: "Active",
@@ -145,7 +234,18 @@ paymentColor: '#007F00',
 paymentBg: '#CDFFCD',
 
         amount: 110,
-        currency: "USD",
+        currency: "USD",  data: [
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+        ],
         paymentDate: "09/Jul/2023",
         lastLogin: "10/Jul/2023",
 status: "Active",
@@ -160,7 +260,18 @@ status: "Active",
 paymentColor: '#E5C999 ',
 paymentBg: '#FFECCC',
         amount: 170,
-        currency: "USD",
+        currency: "USD",  data: [
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+        ],
         paymentDate: "10/Jul/2023",
         lastLogin: "11/Jul/2023",
 status: "Active",
@@ -175,7 +286,18 @@ status: "Active",
 paymentColor: '#D81C1C',
 paymentBg: '#FFE0E0',
         amount: 190,
-        currency: "USD",
+        currency: "USD",  data: [
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+        ],
         paymentDate: "11/Jul/2023",
         lastLogin: "12/Jul/2023",
          status: "Inactive",
@@ -192,7 +314,18 @@ paymentColor: '#007F00',
 paymentBg: '#CDFFCD',
 
         amount: 105,
-        currency: "USD",
+        currency: "USD",  data: [
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+        ],
         paymentDate: "12/Jul/2023",
         lastLogin: "13/Jul/2023",
 status: "Active",
@@ -208,7 +341,18 @@ paymentColor: '#007F00',
 paymentBg: '#CDFFCD',
 
         amount: 95,
-        currency: "USD",
+        currency: "USD",  data: [
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+        ],
         paymentDate: "13/Jul/2023",
         lastLogin: "14/Jul/2023",
 status: "Active",
@@ -223,7 +367,18 @@ status: "Active",
 paymentColor: '#E5C999 ',
 paymentBg: '#FFECCC',
         amount: 160,
-        currency: "USD",
+        currency: "USD",  data: [
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+        ],
         paymentDate: "14/Jul/2023",
         lastLogin: "15/Jul/2023",
 status: "Active",
@@ -238,7 +393,18 @@ status: "Active",
 paymentColor: '#D81C1C',
 paymentBg: '#FFE0E0',
         amount: 205,
-        currency: "USD",
+        currency: "USD",  data: [
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+        ],
         paymentDate: "15/Jul/2023",
         lastLogin: "16/Jul/2023",
          status: "Inactive",
@@ -255,7 +421,18 @@ paymentColor: '#007F00',
 paymentBg: '#CDFFCD',
 
         amount: 115,
-        currency: "USD",
+        currency: "USD",  data: [
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+        ],
         paymentDate: "16/Jul/2023",
         lastLogin: "17/Jul/2023",
 status: "Active",
@@ -271,7 +448,18 @@ paymentColor: '#007F00',
 paymentBg: '#CDFFCD',
 
         amount: 105,
-        currency: "USD",
+        currency: "USD",  data: [
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+        ],
         paymentDate: "17/Jul/2023",
         lastLogin: "18/Jul/2023",
 status: "Active",
@@ -286,7 +474,18 @@ status: "Active",
 paymentColor: '#E5C999 ',
 paymentBg: '#FFECCC',
         amount: 160,
-        currency: "USD",
+        currency: "USD",  data: [
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+        ],
         paymentDate: "18/Jul/2023",
         lastLogin: "19/Jul/2023",
 status: "Active",
@@ -301,7 +500,18 @@ status: "Active",
 paymentColor: '#D81C1C',
 paymentBg: '#FFE0E0',
         amount: 195,
-        currency: "USD",
+        currency: "USD",  data: [
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+        ],
         paymentDate: "19/Jul/2023",
         lastLogin: "20/Jul/2023",
          status: "Inactive",
@@ -318,13 +528,24 @@ paymentColor: '#007F00',
 paymentBg: '#CDFFCD',
 
         amount: 135,
-        currency: "USD",
+        currency: "USD",  data: [
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+          {
+            date: "01/Jan/2023",
+            userActivity: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies rutrum sagittis. Pellentesque in neque at nunc tristique venenatis. Fusce dictum dapibus ligula, ac gravida augue ultricies ut. Curabitur fringilla, enim eu tempus ultricies, ligula neque eleifend massa, sed hendrerit enim metus non est."
+          },
+        ],
         paymentDate: "20/Jul/2023",
         lastLogin: "21/Jul/2023",
 status: "Active",
     statusColor: "#4A4AFF",
     statusBackgroundColor: "#E6E6F2"      }
-    ]
+    ],
     
   }
 })
