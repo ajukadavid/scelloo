@@ -1,3 +1,138 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.table-container {
+    margin: 20px;
+}
+
+.search-bar {
+    margin-bottom: 10px;
+}
+
+.search-bar input[type="text"] {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+
+.check {
+    border-color: #8B82BA;
+    width: 20px;
+    height: 20px;
+    border-style: solid;
+    border-width: 1.9px;
+    padding: 2px;
+}
+
+.innerTable {
+    background-color: #F2F0F9;
+}
+
+table {
+    width: 100%;
+}
+
+thead {
+    background-color: #F4F2FF;
+    height: 60px;
+}
+
+.innerTrow {
+    background-color: #F4F2FF;
+
+}
+
+input[type="radio"] {
+    background-color: #ff0000;
+    /* Change to your desired color */
+}
+
+.searchDiv {
+    background-color: #F4F2FF;
+    border: 1px solid #F4F2FF;
+    border-radius: 10px;
+}
+
+th {
+    text-align: start;
+    color: #6E6893;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+button {
+    background-color: #6D5BD0;
+}
+
+.searchColor {
+    color: #8B82BA;
+}
+
+.main-header {
+    border: 1px solid #E4E1F1
+}
+
+td {
+    padding: 5px;
+}
+
+.user-row {
+    cursor: pointer;
+
+}
+
+.user-details {
+    background-color: #f2f2f2;
+}
+
+tr {
+    border-bottom: 1px solid #D9D5EC;
+}
+
+.icon {
+    color: #8B82BA
+}
+
+.email {
+    color: #6E6893
+}
+
+.filter {
+    border: 1px solid #6D5BD0;
+    padding-inline: 10px;
+    border-radius: 10px;
+}
+input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: 2px;
+    left: -1px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: 2px;
+    left: -1px;
+    position: relative;
+    background-color: #6D5BD0;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+.radio-label:hover {
+    background-color: #F2F0F9;
+    border: 1px solid #F2F0F9;
+    border-radius: 3px;
+}

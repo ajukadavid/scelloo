@@ -6,17 +6,71 @@
         <div class="shadow-lg">
             <div class="w-full p-5 items-center bg-white border-gray-50 rounded border h-[60px] flex justify-between ">
                 <div class="flex">
-                    <div class="filter flex justify-center items-center mr-5">
-                        <span class="material-symbols-outlined searchColor">
-                            filter_alt
-                        </span>
-                        <span>Filter</span>
+                    <div class="flex flex-col">
+                        <div @click="showfilter = !showfilter"
+                            class="filter py-3 flex justify-center items-center mr-5 cursor-pointer">
+                            <span class="material-symbols-outlined searchColor">
+                                filter_alt
+                            </span>
+                            <span>Filter</span>
+                        </div>
                     </div>
-                    <div class="flex innerTrow p-2 w-[350px]">
+                    <div v-if="showfilter"
+                        class="border border-gray-300 rounded bg-white shadow-lg w-[240px] h-fit absolute top-[160px] left-[100px]">
+                        <div class="filter-box text-sm font-light flex flex-col w-full p-5">
+                            <h3 class="my-3 email">SORT BY:</h3>
+                            <label for="default"
+                                class="w-full my-1 px-2  radio-label  flex justify-between cursor-pointer text-base">
+                                Default
+                                <input type="radio" name="sort" value="default" />
+                            </label>
+                            <label for="firstName"
+                                class="w-full my-1 radio-label px-2 flex justify-between cursor-pointer text-base">
+                                First Name
+
+                                <input id="firstName" type="radio" name="sort" value="first name" />
+                            </label>
+                            <label for="lastName"
+                                class="w-full my-1 radio-label px-2 flex justify-between cursor-pointer text-base">
+                                Last Name
+                                <input id="lastName" type="radio" name="sort" value="last name" />
+                            </label>
+                            <label for="dueDate"
+                                class="w-full my-1 radio-label px-2 flex justify-between cursor-pointer text-base">
+                                Due Date
+                                <input id="dueDate" type="radio" name="sort" value="due date" />
+                            </label>
+                            <label for="lastLogin"
+                                class="w-full my-1 radio-label px-2 flex justify-between cursor-pointer text-base">
+                                Last Login
+                                <input id="lastLogin" type="radio" name="sort" value="last login" />
+                            </label>
+                            <hr class="my-3" />
+                            <h3 class="email mb-1">USERS:</h3>
+                            <label for="all"
+                                class="w-full my-1 radio-label px-2 flex justify-between cursor-pointer text-base">
+                                All
+
+                                <input id="all" type="radio" name="sortUsers" value="all" />
+                            </label>
+                            <label for="active"
+                                class="w-full my-1 radio-label px-2 flex justify-between cursor-pointer text-base">
+                                Active
+
+                                <input id="active" type="radio" name="sortUsers" value="active" />
+                            </label>
+                            <label for="Inactive"
+                                class="w-full my-1 radio-label px-2 flex justify-between cursor-pointer text-base">
+                                Inactive
+                                <input id="Inactive" type="radio" name="sortUsers" value="Inactive" />
+                            </label>
+                        </div>
+                    </div>
+                    <div class="flex searchDiv p-2 w-[350px]">
                         <span class="searchColor material-symbols-outlined ">
                             search
                         </span>
-                        <input type="text" class="innerTrow w-full pl-3 outline-none" v-model="searchInput"
+                        <input type="text" class="innerTrow w-full pl-3 outline-none " v-model="searchInput"
                             placeholder="Search Users by Name, Email or Date" />
                     </div>
                 </div>
@@ -153,6 +207,7 @@ const searchInput = ref('');
 const selectedUsers = ref([]);
 const expandedRows = ref<any>([]);
 const store = useStore();
+const showfilter = ref(false)
 const tabFilter = ref(false)
 const tabData = ref<any>([])
 
@@ -173,21 +228,6 @@ const filteredUsers = computed(() => {
     );
 });
 
-// const filteredUsers = computed({
-//     // getter
-//     get() {
-//       
-//     },
-//     // setter
-//     set(newValue) {
-//         // Note: we are using destructuring assignment syntax here.
-//         return newValue
-//     }
-// })
-
-// const mainUsers = computed(() => {
-//     return ;
-// })
 
 const toggleDetails = (userId: any) => {
     if (expandedRows.value.includes(userId)) {
@@ -204,95 +244,4 @@ const payDues = () => {
 };
 </script>
 
-<style>
-.table-container {
-    margin: 20px;
-}
-
-.search-bar {
-    margin-bottom: 10px;
-}
-
-.search-bar input[type="text"] {
-    padding: 5px;
-    margin-right: 10px;
-}
-
-
-.check {
-    border-color: #8B82BA;
-    width: 20px;
-    height: 20px;
-    border-style: solid;
-    border-width: 1.9px;
-    padding: 2px;
-}
-
-.innerTable {
-    background-color: #F2F0F9;
-}
-
-table {
-    width: 100%;
-}
-
-thead {
-    background-color: #F4F2FF;
-    height: 60px;
-}
-
-.innerTrow {
-    background-color: #F4F2FF;
-
-}
-
-th {
-    text-align: start;
-    color: #6E6893;
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-button {
-    background-color: #6D5BD0;
-}
-
-.searchColor {
-    color: #8B82BA;
-}
-
-.main-header {
-    border: 1px solid #E4E1F1
-}
-
-td {
-    padding: 5px;
-}
-
-.user-row {
-    cursor: pointer;
-
-}
-
-.user-details {
-    background-color: #f2f2f2;
-}
-
-tr {
-    border-bottom: 1px solid #D9D5EC;
-}
-
-.icon {
-    color: #8B82BA
-}
-
-.email {
-    color: #6E6893
-}
-
-.filter {
-    border: 1px solid #E2DFEE;
-    padding-inline: 10px;
-    border-radius: 10px;
-}
-</style>
+<style></style>
