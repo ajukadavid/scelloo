@@ -1,8 +1,8 @@
 <template>
-    <div class="table-containr">
-        <div class="w-full p-5 items-center bg-white border-gray-500 rounded border h-[60px] flex justify-between mt-10">
+    <div class="table-container shadow-lg">
+        <div class="w-full p-5 items-center bg-white border-gray-50 rounded border h-[60px] flex justify-between mt-10">
             <div class="flex">
-                <div class="flex justify-center items-center mr-5">
+                <div class="filter flex justify-center items-center mr-5">
                     <span class="material-symbols-outlined searchColor">
                         filter_alt
                     </span>
@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="">
-                <button class="text-uppercase font-semibols border rounded-lg px-3 py-2 cursor-pointer  text-lg text-white"
+                <button class="text-uppercase font-semibold border rounded-lg px-3 py-2 cursor-pointer  text-lg text-white"
                     @click="payDues">PAY
                     DUES</button>
             </div>
@@ -249,5 +249,11 @@ tr {
 
 .email {
     color: #6E6893
+}
+
+.filter {
+    border: 1px solid #E2DFEE;
+    padding-inline: 10px;
+    border-radius: 10px;
 }
 </style>
