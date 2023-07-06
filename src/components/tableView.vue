@@ -1,7 +1,7 @@
 <template>
     <div class="mt-10">
         <div class="mb-3">
-            <tabView />
+            <tabView @update-tab="handleTabUpdate" />
         </div>
         <div class="shadow-lg">
             <div class="w-full p-5 items-center bg-white border-gray-50 rounded border h-[60px] flex justify-between ">
@@ -16,7 +16,7 @@
                         <span class="searchColor material-symbols-outlined ">
                             search
                         </span>
-                        <input type="text" class="innerTrow w-full pl-3" v-model="searchInput"
+                        <input type="text" class="innerTrow w-full pl-3 outline-none" v-model="searchInput"
                             placeholder="Search Users by Name, Email or Date" />
                     </div>
                 </div>
@@ -40,12 +40,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <template :key="user.id" v-for="user in filteredUsers">
-                            <tr @click="toggleDetails(user.id)" class="user-row">
+                        <template :key="user.id" v-for="user in  (tabFilter ? tabData : filteredUsers)">
+                            <tr class="bg-white">
                                 <td>
                                     <div class="px-5 flex w-full justify-between">
                                         <input type="checkbox" class="check" v-model="selectedUsers" :value="user.id" />
-                                        <span class="material-symbols-outlined icon">
+                                        <span @click="toggleDetails(user.id)"
+                                            class="material-symbols-outlined icon cursor-pointer">
                                             expand_circle_down
                                         </span>
                                     </div>
@@ -152,12 +153,41 @@ const searchInput = ref('');
 const selectedUsers = ref([]);
 const expandedRows = ref<any>([]);
 const store = useStore();
+const tabFilter = ref(false)
+const tabData = ref<any>([])
 
+const handleTabUpdate = (tab: string) => {
+    if (tab === 'All') {
+        tabFilter.value = false
+    } else {
+        currentTab.value = tab
+        tabFilter.value = true
+        tabData.value = store.state.users.filter((element: any) => {
+            return element.paymentStatus === currentTab.value
+        });
+    }
+}
 const filteredUsers = computed(() => {
     return store.state.users.filter((user: any) =>
         user.firstName.toLowerCase().includes(searchInput.value.toLowerCase())
     );
 });
+
+// const filteredUsers = computed({
+//     // getter
+//     get() {
+//       
+//     },
+//     // setter
+//     set(newValue) {
+//         // Note: we are using destructuring assignment syntax here.
+//         return newValue
+//     }
+// })
+
+// const mainUsers = computed(() => {
+//     return ;
+// })
 
 const toggleDetails = (userId: any) => {
     if (expandedRows.value.includes(userId)) {
