@@ -22,28 +22,28 @@
                             <label for="default"
                                 class="w-full my-1 px-2  radio-label  flex justify-between cursor-pointer text-base">
                                 Default
-                                <input type="radio" name="sort" value="default" />
+                                <input type="radio" v-model="sortFilter" name="sort" value="default" />
                             </label>
                             <label for="firstName"
                                 class="w-full my-1 radio-label px-2 flex justify-between cursor-pointer text-base">
                                 First Name
 
-                                <input id="firstName" type="radio" name="sort" value="first name" />
+                                <input id="firstName" type="radio" v-model="sortFilter" name="sort" value="first name" />
                             </label>
                             <label for="lastName"
                                 class="w-full my-1 radio-label px-2 flex justify-between cursor-pointer text-base">
                                 Last Name
-                                <input id="lastName" type="radio" name="sort" value="last name" />
+                                <input id="lastName" type="radio" v-model="sortFilter" name="sort" value="last name" />
                             </label>
                             <label for="dueDate"
                                 class="w-full my-1 radio-label px-2 flex justify-between cursor-pointer text-base">
                                 Due Date
-                                <input id="dueDate" type="radio" name="sort" value="due date" />
+                                <input id="dueDate" type="radio" v-model="sortFilter" name="sort" value="due date" />
                             </label>
                             <label for="lastLogin"
                                 class="w-full my-1 radio-label px-2 flex justify-between cursor-pointer text-base">
                                 Last Login
-                                <input id="lastLogin" type="radio" name="sort" value="last login" />
+                                <input id="lastLogin" type="radio" v-model="sortFilter" name="sort" value="last login" />
                             </label>
                             <hr class="my-3" />
                             <h3 class="email mb-1">USERS:</h3>
@@ -197,7 +197,7 @@
   
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { useStore } from '../store';
 import statusBadge from './statusBadge.vue';
 import tabView from './tabView.vue'
@@ -210,10 +210,17 @@ const store = useStore();
 const showfilter = ref(false)
 const tabFilter = ref(false)
 const tabData = ref<any>([])
+const sortFilter = ref('')
 
+watch(sortFilter, (newVal) => {
+    if (newVal === 'first name') {
+        tabFilter.value = true
+        tabData.value = tabData.value.sort((a: any, b: any) => a.firstName.localeCompare(b.firstName));
+    }
+})
 const handleTabUpdate = (tab: string) => {
-    if (tab === 'All') {
-        tabFilter.value = false
+    if (tab === 'All' && sortFilter.value === '') {
+        // tabFilter.value = false
     } else {
         currentTab.value = tab
         tabFilter.value = true
