@@ -51,18 +51,18 @@
                                 class="w-full my-1 radio-label px-2 flex justify-between cursor-pointer text-base">
                                 All
 
-                                <input id="all" type="radio" name="sortUsers" value="all" />
+                                <input id="all" type="radio" v-model="userFilter" name="sortUsers" value="all" />
                             </label>
                             <label for="active"
                                 class="w-full my-1 radio-label px-2 flex justify-between cursor-pointer text-base">
                                 Active
 
-                                <input id="active" type="radio" name="sortUsers" value="active" />
+                                <input id="active" type="radio" name="sortUsers" v-model="userFilter" value="active" />
                             </label>
                             <label for="Inactive"
                                 class="w-full my-1 radio-label px-2 flex justify-between cursor-pointer text-base">
                                 Inactive
-                                <input id="Inactive" type="radio" name="sortUsers" value="Inactive" />
+                                <input id="Inactive" type="radio" name="sortUsers" v-model="userFilter" value="Inactive" />
                             </label>
                         </div>
                     </div>
@@ -82,8 +82,6 @@
                 </div>
             </div>
             <div>
-                {{ tabFilter ? 'td suppose show' : 'fu' }}
-
                 <table border="1">
                     <thead>
                         <tr class="main-header text-sm">
@@ -213,6 +211,7 @@ const showfilter = ref(false)
 const tabFilter = ref(false)
 const tabData = ref<any>([])
 const sortFilter = ref('All')
+const userFilter = ref('All')
 
 watch(sortFilter, (newVal) => {
     tabFilter.value = true
@@ -231,10 +230,22 @@ watch(sortFilter, (newVal) => {
     } else {
         tabFilter.value = false
     }
-
-
-    //
 })
+
+
+
+watch(userFilter, (newVal) => {
+    tabFilter.value = true
+    if (newVal.toLowerCase() !== 'all') {
+        tabData.value = store.state.users.filter((user: any) =>
+            user.status.toLowerCase() === newVal.toLowerCase()
+        );
+    } else {
+        tabFilter.value = false
+    }
+
+})
+
 const handleTabUpdate = (tab: string) => {
     if (tab === 'All' && sortFilter.value === '') {
         tabFilter.value = true
