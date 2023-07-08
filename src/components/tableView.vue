@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <div v-if="showfilter"
-                        class="border border-gray-300 rounded bg-white shadow-lg w-[240px] h-fit absolute top-[160px] left-[100px]">
+                        class="border border-gray-300 rounded bg-white shadow-lg w-[240px] h-fit absolute top-[120px] left-[100px]">
                         <div class="filter-box text-sm font-light flex flex-col w-full p-5">
                             <h3 class="my-3 email">SORT BY:</h3>
                             <label for="default"
@@ -146,11 +146,28 @@
                                             <span class="font-light email text-base">{{ user.currency }}</span>
                                         </div>
                                         <span class="email text-sm">View more</span>
-                                        <div>
+                                        <div @click="showMore(user.id)">
                                             <span class="email material-symbols-outlined">
                                                 more_vert
                                             </span>
+                                            <div v-if="showId === user.id"
+                                                class="border border-gray-300  rounded bg-white shadow-lg w-[160px] h-fit absolute top-[200px] right-[100px]">
+                                                <div>
+                                                    <div class="flex">
+                                                        <div class="flex flex-col gap-1 w-full m-4">
+                                                            <span class="hover:bg-purple-50 px-2">Edit</span>
+                                                            <span class="hover:bg-purple-50 px-2">View Profile</span>
+                                                            <span class="text-green-500 hover:bg-purple-50 px-2">Activate
+                                                                User</span>
+                                                            <hr />
+                                                            <span class="hover:bg-purple-50 px-2 text-red-500">Delete</span>
+                                                        </div>
+                                                        <div></div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
+
                                     </div>
                                 </td>
                             </tr>
@@ -212,6 +229,13 @@ const tabFilter = ref(false)
 const tabData = ref<any>([])
 const sortFilter = ref('All')
 const userFilter = ref('All')
+const showId = ref('')
+const showVal = ref(false)
+
+const showMore = (id: string) => {
+    showId.value = id
+    showVal.value = true
+}
 
 watch(sortFilter, (newVal) => {
     tabFilter.value = true
