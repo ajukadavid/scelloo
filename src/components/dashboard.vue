@@ -4,14 +4,11 @@ import tableView from './tableView.vue';
 
 <template>
   <div class="w-full px-20 main h-screen">
-    <div class="h-[700px] pb-5 overflow-auto">
+    <div class="flex flex-col">
+      <span class="email mt-10">TABLE HEADING</span>
       <tableView class="w-full h-full" />
     </div>
   </div>
 </template>
 
-<style scoped>
-.main {
-  background-color: #F2F0F9;
-}
-</style>
+<style scoped></style>

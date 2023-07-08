@@ -81,7 +81,7 @@
                         DUES</button>
                 </div>
             </div>
-            <div>
+            <div class=" h-[700px] pb-5 overflow-auto">
                 <table border="1">
                     <thead>
                         <tr class="main-header text-sm">
@@ -142,25 +142,33 @@
                                 <td>
                                     <div class="flex w-full items-center  justify-between">
                                         <div class="flex flex-col">
-                                            <span class="font-bold">${{ user.amount }}</span>
+                                            <span @click="user.showMore = false" class="font-bold">${{ user.amount }}</span>
                                             <span class="font-light email text-base">{{ user.currency }}</span>
                                         </div>
                                         <span class="email text-sm">View more</span>
-                                        <div @click="showMore(user.id)">
+                                        <div v-if="user.showMore" @click="handleCloseVal(user)"
+                                            class="shadow-lg flex items-center justify-center relative bottom-[10px] z-20 left-[40px] border-gray-100 w-fit border bg-white rounded-full px-1">
+                                            <span class="email text-base material-symbols-outlined">
+                                                close
+                                            </span>
+                                        </div>
+                                        <div @click="user.showMore = true">
                                             <span class="email material-symbols-outlined">
                                                 more_vert
                                             </span>
-                                            <div v-if="showId === user.id"
-                                                class="border border-gray-300  rounded bg-white shadow-lg w-[160px] h-fit absolute top-[200px] right-[100px]">
+
+                                            <div v-if="user.showMore"
+                                                class="border  border-gray-300 z-0  rounded bg-white shadow-lg w-[160px] h-fit absolute top-[230px] right-[100px]">
                                                 <div>
+
                                                     <div class="flex">
-                                                        <div class="flex flex-col gap-1 w-full m-4">
-                                                            <span class="hover:bg-purple-50 px-2">Edit</span>
-                                                            <span class="hover:bg-purple-50 px-2">View Profile</span>
-                                                            <span class="text-green-500 hover:bg-purple-50 px-2">Activate
+                                                        <div class="flex flex-col gap-1 w-full m-2">
+                                                            <span class="hover:bg-purple-50 px-1">Edit</span>
+                                                            <span class="hover:bg-purple-50 px-1">View Profile</span>
+                                                            <span class="text-green-500 hover:bg-purple-50 px-1">Activate
                                                                 User</span>
                                                             <hr />
-                                                            <span class="hover:bg-purple-50 px-2 text-red-500">Delete</span>
+                                                            <span class="hover:bg-purple-50 px-1 text-red-500">Delete</span>
                                                         </div>
                                                         <div></div>
                                                     </div>
@@ -229,12 +237,11 @@ const tabFilter = ref(false)
 const tabData = ref<any>([])
 const sortFilter = ref('All')
 const userFilter = ref('All')
-const showId = ref('')
-const showVal = ref(false)
 
-const showMore = (id: string) => {
-    showId.value = id
-    showVal.value = true
+
+
+const handleCloseVal = (user: any) => {
+    user.showMore = false
 }
 
 watch(sortFilter, (newVal) => {
@@ -271,7 +278,10 @@ watch(userFilter, (newVal) => {
 })
 
 const handleTabUpdate = (tab: string) => {
-    if (tab === 'All' && sortFilter.value === '') {
+    if (tab === 'All' && !!searchInput) {
+        tabFilter.value = false
+    }
+    if (tab === 'All') {
         tabFilter.value = true
         tabData.value = store.state.users
     } else {

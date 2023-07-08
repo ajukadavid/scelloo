@@ -3,7 +3,7 @@ import dashboard from './components/dashboard.vue'
 </script>
 
 <template>
-  <div class=" h-screen bg-blue-800">
+  <div>
     <dashboard />
 
   </div>
