@@ -22,7 +22,7 @@
                             <label for="default"
                                 class="w-full my-1 px-2  radio-label  flex justify-between cursor-pointer text-base">
                                 Default
-                                <input type="radio" v-model="sortFilter" name="sort" value="default" />
+                                <input id="default" type="radio" v-model="sortFilter" name="sort" value="default" />
                             </label>
                             <label for="firstName"
                                 class="w-full my-1 radio-label px-2 flex justify-between cursor-pointer text-base">
@@ -82,6 +82,8 @@
                 </div>
             </div>
             <div>
+                {{ tabFilter ? 'td suppose show' : 'fu' }}
+
                 <table border="1">
                     <thead>
                         <tr class="main-header text-sm">
@@ -210,17 +212,33 @@ const store = useStore();
 const showfilter = ref(false)
 const tabFilter = ref(false)
 const tabData = ref<any>([])
-const sortFilter = ref('')
+const sortFilter = ref('All')
 
 watch(sortFilter, (newVal) => {
+    tabFilter.value = true
+    tabData.value = store.state.users
     if (newVal === 'first name') {
-        tabFilter.value = true
         tabData.value = tabData.value.sort((a: any, b: any) => a.firstName.localeCompare(b.firstName));
     }
+    else if (newVal === 'last name') {
+        tabData.value = tabData.value.sort((a: any, b: any) => a.lastName.localeCompare(b.lastName));
+    } else if (newVal === 'last name') {
+        tabData.value = tabData.value.sort((a: any, b: any) => a.lastName.localeCompare(b.lastName));
+    } else if (newVal === 'due date') {
+        tabData.value = tabData.value.sort((a: any, b: any) => a.paymentDate.localeCompare(b.paymentDate));
+    } else if (newVal === 'last login') {
+        tabData.value = tabData.value.sort((a: any, b: any) => a.lastLogin.localeCompare(b.lastLogin));
+    } else {
+        tabFilter.value = false
+    }
+
+
+    //
 })
 const handleTabUpdate = (tab: string) => {
     if (tab === 'All' && sortFilter.value === '') {
-        // tabFilter.value = false
+        tabFilter.value = true
+        tabData.value = store.state.users
     } else {
         currentTab.value = tab
         tabFilter.value = true
